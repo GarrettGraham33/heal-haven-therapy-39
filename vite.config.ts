@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/heal-haven-therapy-39/",
   server: {
     host: "::",
     port: 8080,
