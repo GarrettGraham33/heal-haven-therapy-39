@@ -1,5 +1,9 @@
-import { useLocation } from "react-router-dom";
+
 import { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { ArrowLeft, Home } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,15 +16,34 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <>
+      <Navigation />
+      <div className="min-h-screen flex items-center justify-center bg-heal-charcoal-50 px-6">
+        <div className="max-w-lg w-full text-center">
+          <div className="h-24 w-24 bg-gradient-to-br from-heal-green-400 to-heal-blue-400 rounded-full mx-auto mb-8 flex items-center justify-center">
+            <span className="text-4xl font-bold text-white">404</span>
+          </div>
+          <h1 className="heading-lg text-heal-charcoal-900 mb-4">Page Not Found</h1>
+          <p className="paragraph text-heal-charcoal-600 mb-8">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/" className="inline-flex items-center btn-primary justify-center">
+              <Home size={18} className="mr-2" />
+              Return Home
+            </Link>
+            <button 
+              onClick={() => window.history.back()} 
+              className="inline-flex items-center btn-secondary justify-center"
+            >
+              <ArrowLeft size={18} className="mr-2" />
+              Go Back
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

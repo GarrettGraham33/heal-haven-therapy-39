@@ -1,77 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 150 20% 99%;
+    --foreground: 220 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 150 40% 40%;
+    --primary-foreground: 150 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 50%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 45 80% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 150 15% 90%;
+    --input: 150 15% 90%;
+    --ring: 150 40% 40%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 220 30% 10%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 220 30% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 30% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 150 40% 40%;
+    --primary-foreground: 150 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 210 40% 50%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 45 80% 10%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -95,7 +91,84 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+
+  p {
+    @apply leading-relaxed text-foreground/90;
+  }
+
+  ::selection {
+    @apply bg-heal-green-200/40 text-heal-charcoal-950;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-sm border border-white/20 shadow-glass;
+  }
+  
+  .section-container {
+    @apply py-16 sm:py-24 px-6 sm:px-8 max-w-7xl mx-auto;
+  }
+
+  .heading-xl {
+    @apply text-4xl sm:text-5xl md:text-6xl font-heading font-medium leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl sm:text-4xl md:text-5xl font-heading font-medium;
+  }
+
+  .heading-md {
+    @apply text-2xl sm:text-3xl font-heading font-medium;
+  }
+
+  .heading-sm {
+    @apply text-xl sm:text-2xl font-heading font-medium;
+  }
+
+  .paragraph-lg {
+    @apply text-lg sm:text-xl font-serif;
+  }
+
+  .paragraph {
+    @apply text-base sm:text-lg font-serif;
+  }
+
+  .paragraph-sm {
+    @apply text-sm sm:text-base font-serif;
+  }
+
+  .btn-primary {
+    @apply bg-heal-green-600 hover:bg-heal-green-700 text-white px-6 py-3 rounded-md transition-all duration-300 font-medium shadow-sm hover:shadow;
+  }
+
+  .btn-secondary {
+    @apply bg-heal-blue-50 text-heal-blue-700 hover:bg-heal-blue-100 border border-heal-blue-200 px-6 py-3 rounded-md transition-all duration-300 font-medium shadow-sm hover:shadow;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-heal-green-50 text-heal-green-700 px-6 py-3 rounded-md transition-all duration-300 font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
   }
 }
