@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://unforced.github.io/heal-haven-therapy-39",
+  "homepage": "https://healcounseling.org",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
